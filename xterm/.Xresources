@@ -62,4 +62,4 @@ XTerm*VT100.Translations: #override \
       Shift<Btn1Motion>: select-extend() \n\ 
       Shift<Btn1Up>: select-end(CLIPBOARD) \n\
 
-XTerm*geometry: 100x55+200+200
+XTerm*VT100.geometry: 100x55+200+200
