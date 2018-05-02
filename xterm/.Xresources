@@ -55,11 +55,21 @@
 *color7:                S_base2
 *color15:               S_base3
 
-XTerm*VT100.Translations: #override \
-      Shift Ctrl<Key>V: insert-selection(CLIPBOARD) \n\ 
-      Shift Ctrl<Key>V: insert-selection(PRIMARY) \n\ 
-      Shift<Btn1Down>: select-start() \n\ 
-      Shift<Btn1Motion>: select-extend() \n\ 
-      Shift<Btn1Up>: select-end(CLIPBOARD) \n\
+!!XTerm*VT100.Translations: #override \
+!!      Shift Ctrl<Key>V: insert-selection(CLIPBOARD) \n\ 
+!!      Shift Ctrl<Key>V: insert-selection(PRIMARY) \n\ 
+!!      Shift<Btn1Down>: select-start() \n\ 
+!!      Shift<Btn1Motion>: select-extend() \n\ 
+!!      Shift<Btn1Up>: select-end(CLIPBOARD) \n\
 
-XTerm*VT100.geometry: 100x55+200+200
+*VT100.Translations: #override \
+	  Shift <Key>Up:              scroll-back(1) \n\
+	  Shift <Key>Down:            scroll-forw(1) \n\
+	  ~Meta Shift Ctrl <Key>V:    insert-selection(CLIPBOARD) \n\
+	   Meta Shift Ctrl <Key>V:    insert-selection(PRIMARY) \n\
+	  ~Shift <Btn1Up>:            select-end(PRIMARY, CUT_BUFFER0) \n\
+	   Shift <Btn1Up>:            select-end(CLIPBOARD, CUT_BUFFER1) \n\
+	  ~Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(PRIMARY, CUT_BUFFER0) \n\
+	   Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(CLIPBOARD, CUT_BUFFER1)
+
+!!XTerm*VT100.geometry: 100x55+200+200
